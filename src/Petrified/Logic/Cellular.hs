@@ -16,7 +16,7 @@ class Genome cell => Cell cell where
     advance :: StdGen -> [Supply] -> cell -> Maybe cell
 
 class Cell cell => Divisible cell where
-    divide :: cell -> Maybe cell
+    divide :: cell -> Maybe [cell]
 
 class Cell cell => Affectable cell where
     affectedBy :: StdGen -> cell -> cell -> Maybe cell
