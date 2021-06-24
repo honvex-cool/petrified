@@ -12,15 +12,18 @@ executable petrified
     main-is: Main.hs
     build-depends: base, petrified-lib
     default-language: Haskell2010
-    ghc-options: -Wall -Wextra -Werror -threaded
+    ghc-options: -Wall -Werror -threaded
 
 library petrified-lib
     hs-source-dirs: src
-    build-depends: base, gloss
+    build-depends: base, random, gloss
     default-language: Haskell2010
-    ghc-options: -Wall -Wextra -Werror
+    ghc-options: -Wall -Werror
     exposed-modules:
         Petrified.App
+        Petrified.Logic.Genetics
+        Petrified.Logic.Cellular
+        Petrified.Logic.Environment
 
 test-suite spec
     type: exitcode-stdio-1.0
@@ -28,4 +31,6 @@ test-suite spec
     main-is: Spec.hs
     build-depends: base, hspec, petrified-lib
     default-language: Haskell2010
-    ghc-options: -Wall -Wextra -Werror
+    ghc-options: -threaded
+    other-modules:
+        PetrifiedSpec.LogicSpec.CellularSpec
