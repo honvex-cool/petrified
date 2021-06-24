@@ -1,0 +1,31 @@
+cabal-version: 2.4
+name: petrified
+version: 0.1.0.0
+
+license: NONE
+
+author: Jakub Oskwarek
+maintainer: jakub@oskwarek.pl
+
+executable petrified
+    hs-source-dirs: app
+    main-is: Main.hs
+    build-depends: base, petrified-lib
+    default-language: Haskell2010
+    ghc-options: -Wall -Wextra -Werror -threaded
+
+library petrified-lib
+    hs-source-dirs: src
+    build-depends: base, gloss
+    default-language: Haskell2010
+    ghc-options: -Wall -Wextra -Werror
+    exposed-modules:
+        Petrified.App
+
+test-suite spec
+    type: exitcode-stdio-1.0
+    hs-source-dirs: test, app
+    main-is: Spec.hs
+    build-depends: base, hspec, petrified-lib
+    default-language: Haskell2010
+    ghc-options: -Wall -Wextra -Werror
